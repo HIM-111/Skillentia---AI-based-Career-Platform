@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skillentia - AI-powered skills gap analyzer, cover letter generator, and resume enhancer.">
+    <meta name="keywords" content="AI careers, resume analyzer, cover letter generator, skills gap analysis">
+    <meta name="author" content="Skillentia">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Skillentia - Smart Career Tools">
+    <meta property="og:description" content="Analyze skills gaps, generate cover letters, and optimize your resume with AI.">
+    
+    <title>Skillentia - Smart Career Tools</title>
+    
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts: Distinctive pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo" aria-label="Skillentia Home">
+                    <span class="logo-text">SKILL<span class="accent">ENTIA</span></span>
+                </a>
+                
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="gap-analysis.html">Gap Analysis</a></li>
+                    <li><a href="cover-letter.html">Cover Letter</a></li>
+                    <li><a href="resume-updater.html">Resume Enhancer</a></li>
+                    <li><a href="job-listings.html">Job Listings</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="#" data-logout class="btn-nav">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-kicker">Career Intelligence Command Center</span>
+                    <h1 class="hero-title">
+                        <span class="title-line">TARGETED APPLICATIONS</span>
+                        <span class="title-line accent-line">BACKED BY EVIDENCE</span>
+                    </h1>
+                    <p class="hero-description">
+                        Skillentia helps you align your resume and cover letter to each role with structured skill-gap analysis, ATS-oriented enhancement, and transparent reporting.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#tools" class="btn btn-primary">Launch Workflow</a>
+                        <a href="#how-it-works" class="btn btn-secondary">See Process</a>
+                    </div>
+                    <div class="hero-trust">
+                        <span class="trust-pill">Per-user secure workspace</span>
+                        <span class="trust-pill">ATS-focused outputs</span>
+                        <span class="trust-pill">One-time context capture</span>
+                    </div>
+                    <div class="hero-metrics">
+                        <article class="metric-card">
+                            <span class="metric-title">Input</span>
+                            <span class="metric-value">Resume + JD</span>
+                        </article>
+                        <article class="metric-card">
+                            <span class="metric-title">Engine</span>
+                            <span class="metric-value">Local LLM + Rules</span>
+                        </article>
+                        <article class="metric-card">
+                            <span class="metric-title">Output</span>
+                            <span class="metric-value">Actionable Reports</span>
+                        </article>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-element visual-element-pro">
+                        <div class="process-card process-card-1">1. Parse Resume</div>
+                        <div class="process-card process-card-2">2. Analyze Skill Gap</div>
+                        <div class="process-card process-card-3">3. Generate Deliverables</div>
+                        <div class="process-rail"></div>
+                        <div class="process-node node-a"></div>
+                        <div class="process-node node-b"></div>
+                        <div class="process-node node-c"></div>
+                        <div class="process-badge">Secure Session Context</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Tools Section -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SKILLENTIA TOOLS</h2>
+                <p class="section-subtitle">Upload your resume and job description to get started</p>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-container">
+                <div class="upload-grid">
+                    <!-- Resume Upload -->
+                    <div class="upload-card">
+                        <div class="upload-icon">📄</div>
+                        <h3 class="upload-title">Upload Resume</h3>
+                        <p class="upload-description">PDF, DOCX, DOC, or TXT format</p>
+                        
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="resume-upload" accept=".pdf,.docx,.doc,.docs,.txt" class="file-input">
+                            <label for="resume-upload" class="file-upload-label">
+                                <span class="upload-text">Choose File</span>
+                                <span class="upload-icon-btn">📁</span>
+                            </label>
+                            <div class="file-name" id="resume-file-name"></div>
+                        </div>
+                        
+                        <button id="upload-resume-btn" class="btn btn-primary btn-upload" disabled>
+                            Upload Resume
+                        </button>
+                        <button id="remove-resume-btn" class="btn btn-secondary btn-upload btn-upload-remove" disabled>
+                            Remove Resume
+                        </button>
+                        
+                        <div class="upload-status" id="resume-status"></div>
+                    </div>
+
+                    <!-- Job Description Input -->
+                    <div class="upload-card">
+                        <div class="upload-icon">💼</div>
+                        <h3 class="upload-title">Job Description</h3>
+                        <p class="upload-description">Paste the job posting you're applying for</p>
+                        
+                        <textarea 
+                            id="job-description" 
+                            class="jd-textarea" 
+                            placeholder="Paste the complete job description here, including required skills, qualifications, and responsibilities..."
+                            rows="8"
+                        ></textarea>
+                        
+                        <div class="char-count">
+                            <span id="char-count">0</span> characters
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume Text Display -->
+                <div class="resume-display" id="resume-display" style="display: none;">
+                    <h3 class="resume-display-title">📋 Parsed Resume Content</h3>
+                    <div class="resume-text-content" id="resume-text-content"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="analyze-gap-btn" class="btn btn-large btn-action" disabled>
+                    <span class="btn-icon">🎯</span>
+                    Analyze Skills Gap
+                </button>
+                <button id="generate-cover-letter-btn" class="btn btn-large btn-action" disabled>
+                    <span class="btn-icon">✍️</span>
+                    Generate Cover Letter
+                </button>
+                <button id="update-resume-btn" class="btn btn-large btn-action" disabled>
+                    <span class="btn-icon">⚡</span>
+                    Enhance Resume
+                </button>
+            </div>
+
+            <!-- Job Matching Section -->
+            <div class="job-match-panel">
+                <div class="job-match-header">
+                    <h3 class="upload-title">Find Compatible Jobs</h3>
+                    <p class="upload-description">Uses your uploaded resume and pasted job description to pull top compatible online listings.</p>
+                </div>
+                <div class="job-match-grid">
+                    <button id="find-jobs-btn" class="btn btn-large btn-action btn-job-match" disabled>
+                        <span class="btn-icon">🔎</span>
+                        Find Top 5 Job Matches
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-container" id="results-container" style="display: none;">
+                
+                <!-- Skills Gap Analysis Results -->
+                <div class="result-card" id="gap-results" style="display: none;">
+                    <div class="result-header">
+                        <h3 class="result-title">🎯 Skills Gap Analysis</h3>
+                        <button class="btn-close" onclick="closeResult('gap-results')">✕</button>
+                    </div>
+                    <div class="result-content" id="gap-content"></div>
+                </div>
+
+                <!-- Cover Letter Results -->
+                <div class="result-card" id="cover-letter-results" style="display: none;">
+                    <div class="result-header">
+                        <h3 class="result-title">✍️ Generated Cover Letter</h3>
+                        <button class="btn-close" onclick="closeResult('cover-letter-results')">✕</button>
+                    </div>
+                    <div class="result-content" id="cover-letter-content"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-secondary" onclick="copyToClipboard('cover-letter-content')">
+                            📋 Copy to Clipboard
+                        </button>
+                        <button class="btn btn-secondary" onclick="downloadCoverLetterPdf()">
+                            💾 Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resume Update Results -->
+                <div class="result-card" id="resume-update-results" style="display: none;">
+                    <div class="result-header">
+                        <h3 class="result-title">⚡ Updated Resume Suggestions</h3>
+                        <button class="btn-close" onclick="closeResult('resume-update-results')">✕</button>
+                    </div>
+                    <div class="result-content" id="resume-update-content"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-secondary" onclick="copyToClipboard('resume-update-content')">
+                            📋 Copy Suggestions
+                        </button>
+                        <button class="btn btn-secondary" onclick="downloadUpdatedResumePdf()">
+                            💾 Download Resume PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Recommendation Results -->
+                <div class="result-card" id="job-results" style="display: none;">
+                    <div class="result-header">
+                        <h3 class="result-title">🔎 Compatible Job Listings</h3>
+                        <button class="btn-close" onclick="closeResult('job-results')">✕</button>
+                    </div>
+                    <div class="result-content" id="job-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">HOW IT WORKS</h2>
+                <p class="section-subtitle">Four simple steps to career success</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card" data-step="1">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">📤</div>
+                    <h3 class="step-title">Upload Resume</h3>
+                    <p class="step-description">Upload your current resume in PDF, DOCX, DOC, or TXT format. Our AI will extract and parse your information.</p>
+                </div>
+                
+                <div class="step-card" data-step="2">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">📝</div>
+                    <h3 class="step-title">Add Job Description</h3>
+                    <p class="step-description">Paste the job description you're interested in. Include all requirements and qualifications.</p>
+                </div>
+                
+                <div class="step-card" data-step="3">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🤖</div>
+                    <h3 class="step-title">AI Analysis</h3>
+                    <p class="step-description">Our AI analyzes the gap between your skills and job requirements, identifying strengths and areas for improvement.</p>
+                </div>
+                
+                <div class="step-card" data-step="4">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">🚀</div>
+                    <h3 class="step-title">Get Results</h3>
+                    <p class="step-description">Receive personalized cover letters, resume improvements, and actionable insights to land your dream job.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">PLATFORM FEATURES</h2>
+                <p class="section-subtitle">Powered by advanced AI technology</p>
+            </div>
+            
+            <div class="features-grid">
+                <article class="feature-card" data-index="0">
+                    <div class="feature-icon">
+                        <div class="icon-shape">🎯</div>
+                    </div>
+                    <h3 class="feature-title">Skills Gap Analysis</h3>
+                    <p class="feature-description">
+                        Identify exactly what skills you need to develop for your target role. Get a detailed breakdown of matching and missing competencies.
+                    </p>
+                </article>
+                
+                <article class="feature-card" data-index="1">
+                    <div class="feature-icon">
+                        <div class="icon-shape">✍️</div>
+                    </div>
+                    <h3 class="feature-title">AI Cover Letters</h3>
+                    <p class="feature-description">
+                        Generate personalized, compelling cover letters tailored to each job application in seconds, not hours.
+                    </p>
+                </article>
+                
+                <article class="feature-card" data-index="2">
+                    <div class="feature-icon">
+                        <div class="icon-shape">⚡</div>
+                    </div>
+                    <h3 class="feature-title">Resume Optimization</h3>
+                    <p class="feature-description">
+                        Get AI-powered suggestions to improve your resume content, highlighting relevant experience and skills for each position.
+                    </p>
+                </article>
+                
+                <article class="feature-card" data-index="3">
+                    <div class="feature-icon">
+                        <div class="icon-shape">📊</div>
+                    </div>
+                    <h3 class="feature-title">Compatible Job Listings</h3>
+                    <p class="feature-description">
+                        Advanced matching algorithm identifies job listings that align perfectly with your skills and experience, saving you time and effort.
+                    </p>
+                </article>
+                
+                <article class="feature-card" data-index="4">
+                    <div class="feature-icon">
+                        <div class="icon-shape">🔒</div>
+                    </div>
+                    <h3 class="feature-title">Secure & Private</h3>
+                    <p class="feature-description">
+                        Your data is processed securely and never stored permanently. Privacy and confidentiality are our top priorities.
+                    </p>
+                </article>
+                
+                <article class="feature-card" data-index="5">
+                    <div class="feature-icon">
+                        <div class="icon-shape">⚙️</div>
+                    </div>
+                    <h3 class="feature-title">Instant Results</h3>
+                    <p class="feature-description">
+                        Get immediate analysis and suggestions. No waiting, no delays—just fast, actionable insights when you need them.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">READY TO LAND YOUR DREAM JOB?</h2>
+                <p class="cta-text">Join thousands of professionals who have transformed their job search with AI.</p>
+                <a href="#tools" class="btn btn-large btn-cta">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">SKILL<span class="accent">ENTIA</span></h3>
+                    <p class="footer-description">Empowering job seekers with AI-powered tools for resume optimization, skills analysis, and career advancement.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tools">Skills Gap Analyzer</a></li>
+                        <li><a href="#tools">Cover Letter Generator</a></li>
+                        <li><a href="#tools">Resume Enhancer</a></li>
+                        <li><a href="#tools">Job Listings</a></li>
+                        <li><a href="reports.html">Reports</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#blog">Career Tips</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skillentia. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

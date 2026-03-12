@@ -1,0 +1,38 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.routes import router as api_router
+from app.core.config import settings
+from app.core.logging import setup_logging
+from app.services.auth_service import AuthService
+from app.services.user_context_service import UserContextService
+
+
+def create_app() -> FastAPI:
+    setup_logging()
+    AuthService.init_db()
+    UserContextService.init_db()
+
+    app = FastAPI(
+        title=settings.APP_NAME,
+        version="1.0.0"
+    )
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.ALLOWED_ORIGINS,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    app.include_router(api_router, prefix="/api")
+
+    @app.get("/")
+    def root():
+        return {"status": "running", "service": settings.APP_NAME}
+
+    return app
+
+
+app = create_app()

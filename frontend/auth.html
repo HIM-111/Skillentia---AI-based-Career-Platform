@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure authentication for Skillentia.">
+    <title>Skillentia - Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <main class="auth-wrapper">
+        <section class="auth-card auth-card-pro">
+            <div class="auth-brand">
+                <span class="logo-text auth-logo">SKILL<span class="accent">ENTIA</span></span>
+                <h1 class="auth-title">Secure Account Access</h1>
+                <p class="section-subtitle">Sign in to continue or create a new account</p>
+            </div>
+
+            <div id="login-panel">
+                <form id="login-form" class="auth-form">
+                    <label class="auth-label" for="login-email">Email</label>
+                    <input id="login-email" class="auth-input" type="email" placeholder="name@example.com" required>
+                    <label class="auth-label" for="login-password">Password</label>
+                    <input id="login-password" class="auth-input" type="password" placeholder="Enter your password" required>
+                    <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+                </form>
+                <p class="auth-toggle">No account? <a href="#" id="switch-to-signup">Create one</a></p>
+            </div>
+
+            <div id="signup-panel" style="display:none;">
+                <form id="signup-form" class="auth-form">
+                    <label class="auth-label" for="signup-email">Email</label>
+                    <input id="signup-email" class="auth-input" type="email" placeholder="name@example.com" required>
+                    <label class="auth-label" for="signup-password">Password</label>
+                    <input id="signup-password" class="auth-input" type="password" placeholder="At least 8 characters" required>
+                    <label class="auth-label" for="signup-confirm">Confirm Password</label>
+                    <input id="signup-confirm" class="auth-input" type="password" placeholder="Re-enter password" required>
+                    <button type="submit" class="btn btn-primary auth-submit">Create Account</button>
+                </form>
+                <p class="auth-toggle">Already registered? <a href="#" id="switch-to-login">Sign in</a></p>
+            </div>
+
+            <div id="auth-status" class="auth-status"></div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/auth-page.js"></script>
+</body>
+</html>

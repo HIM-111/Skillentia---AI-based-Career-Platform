@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional user reports for Skillentia.">
+    <title>Reports - Skillentia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-feature="dashboard">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo" aria-label="Skillentia Home">
+                    <span class="logo-text">SKILL<span class="accent">ENTIA</span></span>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="gap-analysis.html">Gap Analysis</a></li>
+                    <li><a href="cover-letter.html">Cover Letter</a></li>
+                    <li><a href="resume-updater.html">Resume Enhancer</a></li>
+                    <li><a href="job-listings.html">Job Listings</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="#" data-logout class="btn-nav">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="feature-page">
+        <section class="container">
+            <header class="feature-hero feature-hero-dashboard">
+                <div class="feature-hero-copy">
+                    <h1 class="section-title">CAREER REPORTS</h1>
+                    <p class="section-subtitle">A private workspace for your account showing ATS progression, generated files, and skill development priorities.</p>
+                    <div class="feature-actions">
+                        <button id="refresh-dashboard-btn" class="btn btn-primary">Refresh Reports</button>
+                        <a href="index.html" class="btn btn-secondary">Update Resume/JD on Dashboard</a>
+                    </div>
+                </div>
+                <div class="feature-hero-art">
+                    <div class="dash-ring"></div>
+                    <div class="dash-ring"></div>
+                    <div class="dash-spark"></div>
+                    <div class="dash-spark"></div>
+                    <div class="dash-grid"></div>
+                </div>
+            </header>
+
+            <div id="dashboard-missing-context" class="job-empty" style="display:none;">
+                Resume and job description context is missing. Upload/paste them once on the home page.
+            </div>
+
+            <div class="dashboard-grid">
+                <article class="dashboard-card">
+                    <h3 class="dashboard-card-title">Resume ATS Score</h3>
+                    <div id="dashboard-current-score" class="dashboard-score">--</div>
+                    <p class="dashboard-caption">Current uploaded resume against stored job description.</p>
+                </article>
+                <article class="dashboard-card">
+                    <h3 class="dashboard-card-title">Updated Resume ATS Score</h3>
+                    <div id="dashboard-updated-score" class="dashboard-score">--</div>
+                    <p class="dashboard-caption">Latest generated updated resume score.</p>
+                </article>
+                <article class="dashboard-card">
+                    <h3 class="dashboard-card-title">ATS Score Delta</h3>
+                    <div id="dashboard-score-delta" class="dashboard-score">--</div>
+                    <p class="dashboard-caption">Difference between updated and current ATS scores.</p>
+                </article>
+            </div>
+
+            <div class="dashboard-layout">
+                <section class="dashboard-panel dashboard-panel-downloads">
+                    <div class="dashboard-panel-header">
+                        <h3 class="result-title">Downloads</h3>
+                        <span id="dashboard-last-updated" class="dashboard-caption"></span>
+                    </div>
+                    <div class="dashboard-downloads">
+                        <button id="download-cover-letter-btn" class="btn btn-secondary" disabled>Download Cover Letter PDF</button>
+                        <button id="download-updated-resume-btn" class="btn btn-secondary" disabled>Download Resume PDF</button>
+                    </div>
+                </section>
+
+                <section class="dashboard-panel dashboard-panel-skills">
+                    <div class="dashboard-panel-header">
+                        <h3 class="result-title">Skill Development Framework</h3>
+                    </div>
+                    <p id="dashboard-recommendations" class="recommendations-text"></p>
+                    <div id="dashboard-missing-skills" class="skills-tags"></div>
+                    <ol id="dashboard-development-plan" class="plan-list"></ol>
+                    <div class="priority-table-wrap">
+                        <table class="priority-table">
+                            <thead>
+                                <tr>
+                                    <th>Skill</th>
+                                    <th>Priority</th>
+                                    <th>Mentions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-priority-table"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="dashboard-panel dashboard-panel-wide dashboard-panel-jobs">
+                    <div class="dashboard-panel-header">
+                        <h3 class="result-title">Top Compatible Job Listings</h3>
+                        <span id="dashboard-jobs-updated" class="dashboard-caption"></span>
+                    </div>
+                    <p class="dashboard-caption">Pulled from your last Job Listings run for the current resume and job description context.</p>
+                    <div id="dashboard-top-jobs" class="dashboard-job-list"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">SKILL<span class="accent">ENTIA</span></h3>
+                    <p class="footer-description">Empowering job seekers with AI-powered tools for resume optimization, skills analysis, and career advancement.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="gap-analysis.html">Skills Gap Analyzer</a></li>
+                        <li><a href="cover-letter.html">Cover Letter Generator</a></li>
+                        <li><a href="resume-updater.html">Resume Enhancer</a></li>
+                        <li><a href="job-listings.html">Job Listings</a></li>
+                        <li><a href="reports.html">Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#tools">Get Started</a></li>
+                        <li><a href="index.html">Home</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#privacy">Privacy Policy</a></li>
+                        <li><a href="index.html#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skillentia. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="index.html#privacy">Privacy Policy</a>
+                    <a href="index.html#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

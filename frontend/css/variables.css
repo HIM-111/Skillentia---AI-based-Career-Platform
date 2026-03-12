@@ -1,0 +1,124 @@
+/* Design System Variables */
+
+:root {
+    /* Color Palette - Bold cybernetic theme */
+    --color-primary: #00FFA3;
+    --color-primary-dark: #00CC82;
+    --color-primary-light: #66FFCC;
+    
+    --color-accent: #FF00FF;
+    --color-accent-dark: #CC00CC;
+    --color-accent-light: #FF66FF;
+    
+    --color-background: #0A0E27;
+    --color-background-light: #141B3D;
+    --color-background-lighter: #1E2749;
+    
+    --color-text: #FFFFFF;
+    --color-text-secondary: #B8C5E0;
+    --color-text-muted: #7A8AAF;
+    
+    --color-surface: #1A2142;
+    --color-surface-hover: #242D52;
+    
+    --color-border: #2D3A5F;
+    --color-border-light: #3F4D75;
+    
+    --color-success: #00FFA3;
+    --color-warning: #FFB800;
+    --color-error: #FF4D6A;
+    
+    /* Typography */
+    --font-display: 'Bebas Neue', 'Archivo Black', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-lg: 1.125rem;     /* 18px */
+    --font-size-xl: 1.25rem;      /* 20px */
+    --font-size-2xl: 1.5rem;      /* 24px */
+    --font-size-3xl: 2rem;        /* 32px */
+    --font-size-4xl: 2.5rem;      /* 40px */
+    --font-size-5xl: 3rem;        /* 48px */
+    --font-size-6xl: 4rem;        /* 64px */
+    --font-size-7xl: 5rem;        /* 80px */
+    
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.8;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;      /* 4px */
+    --space-sm: 0.5rem;       /* 8px */
+    --space-md: 1rem;         /* 16px */
+    --space-lg: 1.5rem;       /* 24px */
+    --space-xl: 2rem;         /* 32px */
+    --space-2xl: 3rem;        /* 48px */
+    --space-3xl: 4rem;        /* 64px */
+    --space-4xl: 6rem;        /* 96px */
+    --space-5xl: 8rem;        /* 128px */
+    
+    /* Layout */
+    --container-max-width: 1280px;
+    --container-padding: 2rem;
+    
+    --grid-gap: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;     /* 4px */
+    --radius-md: 0.5rem;      /* 8px */
+    --radius-lg: 1rem;        /* 16px */
+    --radius-xl: 1.5rem;      /* 24px */
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 20px rgba(0, 255, 163, 0.3);
+    --shadow-glow-accent: 0 0 30px rgba(255, 0, 255, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 400ms ease-in-out;
+    
+    /* Z-index */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* Light theme override (optional) */
+@media (prefers-color-scheme: light) {
+    :root[data-theme="light"] {
+        --color-background: #F5F7FA;
+        --color-background-light: #FFFFFF;
+        --color-background-lighter: #E8ECF2;
+        
+        --color-text: #0A0E27;
+        --color-text-secondary: #4A5568;
+        --color-text-muted: #718096;
+        
+        --color-surface: #FFFFFF;
+        --color-surface-hover: #F7FAFC;
+        
+        --color-border: #E2E8F0;
+        --color-border-light: #CBD5E0;
+        
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+}

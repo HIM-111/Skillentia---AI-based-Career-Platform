@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semantic skills gap analysis dashboard for Skillentia.">
+    <title>Gap Analysis - Skillentia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-feature="gap">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo" aria-label="Skillentia Home">
+                    <span class="logo-text">SKILL<span class="accent">ENTIA</span></span>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="gap-analysis.html">Gap Analysis</a></li>
+                    <li><a href="cover-letter.html">Cover Letter</a></li>
+                    <li><a href="resume-updater.html">Resume Enhancer</a></li>
+                    <li><a href="job-listings.html">Job Listings</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="#" data-logout class="btn-nav">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="feature-page">
+        <section class="container">
+            <header class="feature-hero feature-hero-gap">
+                <div class="feature-hero-copy">
+                    <h1 class="section-title">GAP ANALYSIS</h1>
+                    <p class="section-subtitle">Semantic skills mapping with readiness scoring, prioritized gap insights, and category coverage.</p>
+                    <div class="feature-actions">
+                        <button id="run-feature-btn" class="btn btn-primary">Run Gap Analysis</button>
+                        <a href="index.html" class="btn btn-secondary">Update Resume/JD on Dashboard</a>
+                    </div>
+                </div>
+                <div class="feature-hero-art">
+                    <div class="art-ring"></div>
+                    <div class="art-dot"></div>
+                    <div class="art-dot"></div>
+                    <div class="art-dot"></div>
+                    <div class="art-grid"></div>
+                </div>
+            </header>
+            <div id="missing-context" class="job-empty" style="display:none;">
+                Resume and job description context is missing. Upload/paste them once on the home page.
+            </div>
+            <div class="results-container" id="results-container" style="display:block;">
+                <div class="result-card" id="gap-results" style="display:none;">
+                    <div class="result-header">
+                        <h3 class="result-title">Skills Gap Analysis</h3>
+                    </div>
+                    <div class="result-content" id="gap-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">SKILL<span class="accent">ENTIA</span></h3>
+                    <p class="footer-description">Empowering job seekers with AI-powered tools for resume optimization, skills analysis, and career advancement.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="gap-analysis.html">Skills Gap Analyzer</a></li>
+                        <li><a href="cover-letter.html">Cover Letter Generator</a></li>
+                        <li><a href="resume-updater.html">Resume Enhancer</a></li>
+                        <li><a href="job-listings.html">Job Listings</a></li>
+                        <li><a href="reports.html">Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#tools">Get Started</a></li>
+                        <li><a href="index.html">Home</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#privacy">Privacy Policy</a></li>
+                        <li><a href="index.html#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skillentia. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="index.html#privacy">Privacy Policy</a>
+                    <a href="index.html#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav-lite.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/feature-pages.js"></script>
+</body>
+</html>
